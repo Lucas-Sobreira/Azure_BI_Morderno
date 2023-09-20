@@ -67,13 +67,12 @@
 				"     input(",
 				"          Afiliado as string",
 				"     ),",
-				"     partitionFileNames:[''],",
+				"     partitionFileNames:['TipoPagamento.csv'],",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     saveOrder: 1,",
 				"     partitionBy('hash', 1)) ~> TipoPagamentoSilver"
 			]
 		}
