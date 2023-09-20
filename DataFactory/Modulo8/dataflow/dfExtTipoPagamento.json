@@ -45,7 +45,7 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> Vendas",
 				"Vendas aggregate(groupBy({Tipo de Pagamento}),",
-				"     Tipo = count({Tipo de Pagamento})) ~> AgregAuxiliar"
+				"     Contagem = count({Tipo de Pagamento})) ~> AgregAuxiliar"
 			]
 		}
 	}
