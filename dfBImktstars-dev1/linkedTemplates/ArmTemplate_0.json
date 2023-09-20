@@ -104,7 +104,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/dsExtVendasHotmartSaida')]",
+			"name": "[concat(parameters('factoryName'), '/dsExtVendasHotmartOrigem')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -216,7 +216,7 @@
 					"sources": [
 						{
 							"dataset": {
-								"referenceName": "dsExtVendasHotmartSaida",
+								"referenceName": "dsExtVendasHotmartOrigem",
 								"type": "DatasetReference"
 							},
 							"name": "Vendas"
@@ -285,7 +285,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/dsExtVendasHotmartSaida')]",
+				"[concat(variables('factoryId'), '/datasets/dsExtVendasHotmartOrigem')]",
 				"[concat(variables('factoryId'), '/datasets/dsExtAfiliadosDestino')]"
 			]
 		},
