@@ -9,7 +9,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "dsExtVendasHotmartSaida",
+						"referenceName": "dsExtVendasHotmartOrigem",
 						"type": "DatasetReference"
 					},
 					"name": "Vendas"
