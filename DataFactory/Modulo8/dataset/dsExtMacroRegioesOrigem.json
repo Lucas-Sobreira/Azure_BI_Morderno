@@ -1,0 +1,28 @@
+{
+	"name": "dsExtMacroRegioesOrigem",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "dlmktstar",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "1 - Dataset_Marketing_Stars/1 - Source"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Planilha1",
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Macro Regioes.xlsx",
+				"fileSystem": "bronze"
+			},
+			"firstRowAsHeader": false
+		},
+		"schema": [
+			{
+				"type": "String"
+			}
+		]
+	}
+}
