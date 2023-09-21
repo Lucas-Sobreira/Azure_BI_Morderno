@@ -15,13 +15,27 @@
 					"name": "MacroRegioes"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "dsExtMacroRegioesDestino",
+						"type": "DatasetReference"
+					},
+					"name": "RegioesSilver"
+				}
+			],
 			"transformations": [
 				{
 					"name": "dddcidadeestado"
 				},
 				{
-					"name": "derivedColumn1"
+					"name": "Splitdddcidadeestado"
+				},
+				{
+					"name": "RegioesSeparadas"
+				},
+				{
+					"name": "SelecaoFinal"
 				}
 			],
 			"scriptLines": [
@@ -32,7 +46,29 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> MacroRegioes",
 				"MacroRegioes derive(dddcidadeestado = substring(Column_1, 4, 400)) ~> dddcidadeestado",
-				"dddcidadeestado derive() ~> derivedColumn1"
+				"dddcidadeestado derive(Splitdddcidadeestado = split(dddcidadeestado, '–')) ~> Splitdddcidadeestado",
+				"Splitdddcidadeestado derive(ddd = Splitdddcidadeestado[1],",
+				"          cidade = Splitdddcidadeestado[2],",
+				"          estado = Splitdddcidadeestado[3]) ~> RegioesSeparadas",
+				"RegioesSeparadas select(mapColumn(",
+				"          ddd,",
+				"          cidade,",
+				"          estado",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> SelecaoFinal",
+				"SelecaoFinal sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          Afiliado as string",
+				"     ),",
+				"     partitionFileNames:['regioes.csv'],",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> RegioesSilver"
 			]
 		}
 	}
