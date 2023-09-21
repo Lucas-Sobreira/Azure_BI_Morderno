@@ -40,7 +40,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"dataflow": {
-								"referenceName": "dfExtAfiliadosDestino",
+								"referenceName": "dfExtAfiliados",
 								"type": "DataFlowReference",
 								"parameters": {},
 								"datasetParameters": {
@@ -67,7 +67,7 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/dataflows/dfExtAfiliadosDestino')]"
+				"[concat(variables('factoryId'), '/dataflows/dfExtAfiliados')]"
 			]
 		},
 		{
@@ -290,7 +290,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"dataflow": {
-								"referenceName": "dfExtVendasHotmartDestino",
+								"referenceName": "dfExtVendasHotmart",
 								"type": "DataFlowReference",
 								"parameters": {},
 								"datasetParameters": {
@@ -317,7 +317,7 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/dataflows/dfExtVendasHotmartDestino')]"
+				"[concat(variables('factoryId'), '/dataflows/dfExtVendasHotmart')]"
 			]
 		},
 		{
@@ -481,6 +481,41 @@
 				},
 				"schema": [
 					{
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/dlmktstar')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/dsExtProdutorDestino')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "dlmktstar",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "1 - Dataset_Marketing_Stars/1 - Source"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "silver"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Afiliado",
 						"type": "String"
 					}
 				]
@@ -712,7 +747,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/dfExtAfiliadosDestino')]",
+			"name": "[concat(parameters('factoryName'), '/dfExtAfiliados')]",
 			"type": "Microsoft.DataFactory/factories/dataflows",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -936,6 +971,92 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/dfExtProdutor')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"folder": {
+					"name": "1 - Extraction"
+				},
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "dsExtVendasHotmartOrigem",
+								"type": "DatasetReference"
+							},
+							"name": "Vendas"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "dsExtProdutorDestino",
+								"type": "DatasetReference"
+							},
+							"name": "ProdutorSilver"
+						}
+					],
+					"transformations": [
+						{
+							"name": "AgregAuxiliar"
+						},
+						{
+							"name": "SelecionarColuna"
+						}
+					],
+					"scriptLines": [
+						"source(output(",
+						"          Produto as string,",
+						"          Afiliado as string,",
+						"          {Nome do Produtor} as string,",
+						"          {Documento do Produtor} as string,",
+						"          {Meio de Pagamento} as string,",
+						"          {Preço do Produto} as string,",
+						"          {Preço da Oferta} as string,",
+						"          {Tipo de Pagamento} as string,",
+						"          {Tipo pagamento oferta} as string,",
+						"          Moeda as string,",
+						"          {Número da Parcela} as string,",
+						"          {Recorrência} as string,",
+						"          {Data de Venda} as string,",
+						"          {Data de Confirmação} as string,",
+						"          Status as string,",
+						"          DDD as string,",
+						"          Cidade as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> Vendas",
+						"Vendas aggregate(groupBy({Nome do Produtor}),",
+						"     Contagem = count()) ~> AgregAuxiliar",
+						"AgregAuxiliar select(mapColumn(",
+						"          {Nome do Produtor}",
+						"     ),",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> SelecionarColuna",
+						"SelecionarColuna sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     input(",
+						"          Afiliado as string",
+						"     ),",
+						"     partitionFileNames:['produtor.csv'],",
+						"     umask: 0022,",
+						"     preCommands: [],",
+						"     postCommands: [],",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     partitionBy('hash', 1)) ~> ProdutorSilver"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/dsExtVendasHotmartOrigem')]",
+				"[concat(variables('factoryId'), '/datasets/dsExtProdutorDestino')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/dfExtStatus')]",
 			"type": "Microsoft.DataFactory/factories/dataflows",
 			"apiVersion": "2018-06-01",
@@ -1108,7 +1229,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/dfExtVendasHotmartDestino')]",
+			"name": "[concat(parameters('factoryName'), '/dfExtVendasHotmart')]",
 			"type": "Microsoft.DataFactory/factories/dataflows",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -1178,6 +1299,22 @@
 				"[concat(variables('factoryId'), '/datasets/dsExtVendasHotmartOrigem')]",
 				"[concat(variables('factoryId'), '/datasets/dsExtVendasHotmartDestino')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "1 - Extraction"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
 		}
 	]
 }
