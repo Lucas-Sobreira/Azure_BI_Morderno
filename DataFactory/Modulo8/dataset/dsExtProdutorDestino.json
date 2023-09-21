@@ -1,0 +1,30 @@
+{
+	"name": "dsExtProdutorDestino",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "dlmktstar",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "1 - Dataset_Marketing_Stars/1 - Source"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "silver"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Afiliado",
+				"type": "String"
+			}
+		]
+	}
+}

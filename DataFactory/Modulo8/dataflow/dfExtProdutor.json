@@ -1,5 +1,5 @@
 {
-	"name": "dfExtVendasHotmart",
+	"name": "dfExtProdutor",
 	"properties": {
 		"folder": {
 			"name": "1 - Extraction"
@@ -12,19 +12,26 @@
 						"referenceName": "dsExtVendasHotmartOrigem",
 						"type": "DatasetReference"
 					},
-					"name": "VendasOrigem"
+					"name": "Vendas"
 				}
 			],
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "dsExtVendasHotmartDestino",
+						"referenceName": "dsExtProdutorDestino",
 						"type": "DatasetReference"
 					},
-					"name": "VendasDestino"
+					"name": "ProdutorSilver"
 				}
 			],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "AgregAuxiliar"
+				},
+				{
+					"name": "SelecionarColuna"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          Produto as string,",
@@ -47,19 +54,26 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> VendasOrigem",
-				"VendasOrigem sink(allowSchemaDrift: true,",
+				"     ignoreNoFilesFound: false) ~> Vendas",
+				"Vendas aggregate(groupBy({Nome do Produtor}),",
+				"     Contagem = count()) ~> AgregAuxiliar",
+				"AgregAuxiliar select(mapColumn(",
+				"          {Nome do Produtor}",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> SelecionarColuna",
+				"SelecionarColuna sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          Afiliado as string",
 				"     ),",
-				"     partitionFileNames:['vendasHotmart.csv'],",
+				"     partitionFileNames:['produtor.csv'],",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     partitionBy('hash', 1)) ~> VendasDestino"
+				"     partitionBy('hash', 1)) ~> ProdutorSilver"
 			]
 		}
 	}
