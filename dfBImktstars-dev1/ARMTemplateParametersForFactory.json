@@ -8,6 +8,9 @@
 		"dlmktstar_accountKey": {
 			"value": ""
 		},
+		"srvbimktstar_connectionString": {
+			"value": ""
+		},
 		"dlmktstar_properties_typeProperties_url": {
 			"value": "https://samktstar1.dfs.core.windows.net/"
 		}
