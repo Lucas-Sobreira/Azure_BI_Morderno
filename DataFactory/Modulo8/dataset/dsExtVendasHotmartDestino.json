@@ -13,6 +13,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "vendasHotmart.csv",
 				"fileSystem": "silver"
 			},
 			"columnDelimiter": ",",
