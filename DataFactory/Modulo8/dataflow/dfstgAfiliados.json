@@ -22,7 +22,15 @@
 					"name": "Stage"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "tblstgAfiliados",
+						"type": "DatasetReference"
+					},
+					"name": "StageNew"
+				}
+			],
 			"transformations": [
 				{
 					"name": "ClassSource"
@@ -38,6 +46,15 @@
 				},
 				{
 					"name": "Ativos"
+				},
+				{
+					"name": "LeftJoin"
+				},
+				{
+					"name": "DataIni"
+				},
+				{
+					"name": "split1"
 				}
 			],
 			"scriptLines": [
@@ -77,7 +94,37 @@
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> newStage",
-				"Stage filter(isNull(DataFim)) ~> Ativos"
+				"Stage filter(isNull(DataFim)) ~> Ativos",
+				"newSource, newStage join(Id_SRC == BK_STG,",
+				"     joinType:'left',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> LeftJoin",
+				"LeftJoin derive(dataStarEnd = currentTimestamp()) ~> DataIni",
+				"DataIni split(isNull(BK_STG),",
+				"     disjoint: false) ~> split1@(NovosRegistros)",
+				"split1@NovosRegistros sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          Id as integer,",
+				"          BK as integer,",
+				"          Nome as string,",
+				"          DataInicio as date,",
+				"          DataFim as date",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          BK = Id_SRC,",
+				"          Nome = Nome_SRC,",
+				"          DataInicio = dataStarEnd",
+				"     )) ~> StageNew"
 			]
 		}
 	}
