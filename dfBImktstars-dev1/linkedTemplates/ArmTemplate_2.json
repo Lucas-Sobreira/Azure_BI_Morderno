@@ -555,7 +555,9 @@
 								"datasetParameters": {
 									"Source": {},
 									"Stage": {},
-									"StageNew": {}
+									"StageNew": {},
+									"StageUpdate": {},
+									"StageInativar": {}
 								}
 							},
 							"staging": {},
