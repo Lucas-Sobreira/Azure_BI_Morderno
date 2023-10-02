@@ -64,7 +64,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "1 - Dataset_Marketing_Stars/1 - Source"
+					"name": "1 - Dataset_Marketing_Stars/1 - Extraction"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -95,7 +95,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "1 - Dataset_Marketing_Stars/1 - Source"
+					"name": "1 - Dataset_Marketing_Stars/1 - Extraction"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -131,7 +131,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "1 - Dataset_Marketing_Stars/1 - Source"
+					"name": "1 - Dataset_Marketing_Stars/1 - Extraction"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -167,7 +167,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "1 - Dataset_Marketing_Stars/1 - Source"
+					"name": "1 - Dataset_Marketing_Stars/1 - Extraction"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -203,7 +203,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "1 - Dataset_Marketing_Stars/1 - Source"
+					"name": "1 - Dataset_Marketing_Stars/1 - Extraction"
 				},
 				"annotations": [],
 				"type": "Excel",
@@ -236,7 +236,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "1 - Dataset_Marketing_Stars/1 - Source"
+					"name": "1 - Dataset_Marketing_Stars/1 - Extraction"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -272,7 +272,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "1 - Dataset_Marketing_Stars/1 - Source"
+					"name": "1 - Dataset_Marketing_Stars/1 - Extraction"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -308,7 +308,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "1 - Dataset_Marketing_Stars/1 - Source"
+					"name": "1 - Dataset_Marketing_Stars/1 - Extraction"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -344,7 +344,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "1 - Dataset_Marketing_Stars/1 - Source"
+					"name": "1 - Dataset_Marketing_Stars/1 - Extraction"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -380,7 +380,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "1 - Dataset_Marketing_Stars/1 - Source"
+					"name": "1 - Dataset_Marketing_Stars/1 - Extraction"
 				},
 				"annotations": [],
 				"type": "DelimitedText",

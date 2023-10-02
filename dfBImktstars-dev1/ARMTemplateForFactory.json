@@ -62,8 +62,7 @@
 					}
 				],
 				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
+					"elapsedTimeMetric": {}
 				},
 				"folder": {
 					"name": "1 - Extraction"
@@ -112,8 +111,7 @@
 					}
 				],
 				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
+					"elapsedTimeMetric": {}
 				},
 				"folder": {
 					"name": "1 - Extraction"
@@ -162,8 +160,7 @@
 					}
 				],
 				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
+					"elapsedTimeMetric": {}
 				},
 				"folder": {
 					"name": "1 - Extraction"
@@ -212,8 +209,7 @@
 					}
 				],
 				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
+					"elapsedTimeMetric": {}
 				},
 				"folder": {
 					"name": "1 - Extraction"
@@ -262,8 +258,7 @@
 					}
 				],
 				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
+					"elapsedTimeMetric": {}
 				},
 				"folder": {
 					"name": "1 - Extraction"
@@ -312,8 +307,7 @@
 					}
 				],
 				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
+					"elapsedTimeMetric": {}
 				},
 				"folder": {
 					"name": "1 - Extraction"
@@ -362,8 +356,7 @@
 					}
 				],
 				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
+					"elapsedTimeMetric": {}
 				},
 				"folder": {
 					"name": "1 - Extraction"
@@ -412,8 +405,7 @@
 					}
 				],
 				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
+					"elapsedTimeMetric": {}
 				},
 				"folder": {
 					"name": "2 - Stage"
@@ -462,8 +454,7 @@
 					}
 				],
 				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
+					"elapsedTimeMetric": {}
 				},
 				"folder": {
 					"name": "2 - Stage"
@@ -512,8 +503,7 @@
 					}
 				],
 				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
+					"elapsedTimeMetric": {}
 				},
 				"folder": {
 					"name": "2 - Stage"
@@ -562,8 +552,7 @@
 					}
 				],
 				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
+					"elapsedTimeMetric": {}
 				},
 				"folder": {
 					"name": "2 - Stage"
@@ -612,8 +601,7 @@
 					}
 				],
 				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
+					"elapsedTimeMetric": {}
 				},
 				"folder": {
 					"name": "2 - Stage"
@@ -662,8 +650,7 @@
 					}
 				],
 				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
+					"elapsedTimeMetric": {}
 				},
 				"folder": {
 					"name": "2 - Stage"
@@ -684,7 +671,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "1 - Dataset_Marketing_Stars/1 - Source"
+					"name": "1 - Dataset_Marketing_Stars/1 - Extraction"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -715,7 +702,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "1 - Dataset_Marketing_Stars/1 - Source"
+					"name": "1 - Dataset_Marketing_Stars/1 - Extraction"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -751,7 +738,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "1 - Dataset_Marketing_Stars/1 - Source"
+					"name": "1 - Dataset_Marketing_Stars/1 - Extraction"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -787,7 +774,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "1 - Dataset_Marketing_Stars/1 - Source"
+					"name": "1 - Dataset_Marketing_Stars/1 - Extraction"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -823,7 +810,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "1 - Dataset_Marketing_Stars/1 - Source"
+					"name": "1 - Dataset_Marketing_Stars/1 - Extraction"
 				},
 				"annotations": [],
 				"type": "Excel",
@@ -856,7 +843,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "1 - Dataset_Marketing_Stars/1 - Source"
+					"name": "1 - Dataset_Marketing_Stars/1 - Extraction"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -892,7 +879,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "1 - Dataset_Marketing_Stars/1 - Source"
+					"name": "1 - Dataset_Marketing_Stars/1 - Extraction"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -928,7 +915,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "1 - Dataset_Marketing_Stars/1 - Source"
+					"name": "1 - Dataset_Marketing_Stars/1 - Extraction"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -964,7 +951,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "1 - Dataset_Marketing_Stars/1 - Source"
+					"name": "1 - Dataset_Marketing_Stars/1 - Extraction"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -1000,7 +987,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "1 - Dataset_Marketing_Stars/1 - Source"
+					"name": "1 - Dataset_Marketing_Stars/1 - Extraction"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -2565,6 +2552,143 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/dsExtTipoPagamentoDestino')]",
 				"[concat(variables('factoryId'), '/datasets/tblsrctTipoPagamento')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/dfstgAfiliados')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"folder": {
+					"name": "2 - Stage"
+				},
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "tblsrcAfiliados",
+								"type": "DatasetReference"
+							},
+							"name": "Source"
+						},
+						{
+							"dataset": {
+								"referenceName": "tblstgAfiliados",
+								"type": "DatasetReference"
+							},
+							"name": "Stage"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "tblstgAfiliados",
+								"type": "DatasetReference"
+							},
+							"name": "StageNew"
+						}
+					],
+					"transformations": [
+						{
+							"name": "ClassSource"
+						},
+						{
+							"name": "newSource"
+						},
+						{
+							"name": "ClassStage"
+						},
+						{
+							"name": "newStage"
+						},
+						{
+							"name": "Ativos"
+						},
+						{
+							"name": "LeftJoin"
+						},
+						{
+							"name": "DataIni"
+						},
+						{
+							"name": "split1"
+						}
+					],
+					"scriptLines": [
+						"source(output(",
+						"          Id as integer,",
+						"          Nome as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     isolationLevel: 'READ_UNCOMMITTED',",
+						"     format: 'table') ~> Source",
+						"source(output(",
+						"          Id as integer,",
+						"          BK as integer,",
+						"          Nome as string,",
+						"          DataInicio as date,",
+						"          DataFim as date",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     isolationLevel: 'READ_UNCOMMITTED',",
+						"     format: 'table') ~> Stage",
+						"Source sort(asc(Id, true)) ~> ClassSource",
+						"ClassSource select(mapColumn(",
+						"          Id_SRC = Id,",
+						"          Nome_SRC = Nome",
+						"     ),",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> newSource",
+						"Ativos sort(asc(BK, true)) ~> ClassStage",
+						"ClassStage select(mapColumn(",
+						"          Id_STG = Id,",
+						"          BK_STG = BK,",
+						"          Nome_STG = Nome,",
+						"          DataInicio_STG = DataInicio,",
+						"          DataFim_STG = DataFim",
+						"     ),",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> newStage",
+						"Stage filter(isNull(DataFim)) ~> Ativos",
+						"newSource, newStage join(Id_SRC == BK_STG,",
+						"     joinType:'left',",
+						"     matchType:'exact',",
+						"     ignoreSpaces: false,",
+						"     broadcast: 'auto')~> LeftJoin",
+						"LeftJoin derive(dataStarEnd = currentTimestamp()) ~> DataIni",
+						"DataIni split(isNull(BK_STG),",
+						"     disjoint: false) ~> split1@(NovosRegistros)",
+						"split1@NovosRegistros sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     input(",
+						"          Id as integer,",
+						"          BK as integer,",
+						"          Nome as string,",
+						"          DataInicio as date,",
+						"          DataFim as date",
+						"     ),",
+						"     deletable:false,",
+						"     insertable:true,",
+						"     updateable:false,",
+						"     upsertable:false,",
+						"     format: 'table',",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     errorHandlingOption: 'stopOnFirstError',",
+						"     mapColumn(",
+						"          BK = Id_SRC,",
+						"          Nome = Nome_SRC,",
+						"          DataInicio = dataStarEnd",
+						"     )) ~> StageNew"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/tblsrcAfiliados')]",
+				"[concat(variables('factoryId'), '/datasets/tblstgAfiliados')]"
 			]
 		}
 	]
