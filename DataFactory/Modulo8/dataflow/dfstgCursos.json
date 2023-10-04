@@ -23,7 +23,29 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "ClassSource"
+				},
+				{
+					"name": "Ativos"
+				},
+				{
+					"name": "ClassStage"
+				},
+				{
+					"name": "NewStage"
+				},
+				{
+					"name": "NewSource"
+				},
+				{
+					"name": "LeftJoin"
+				},
+				{
+					"name": "DataIni"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          Id as integer,",
@@ -45,7 +67,33 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     format: 'table') ~> Stage"
+				"     format: 'table') ~> Stage",
+				"Source sort(asc(Id, true)) ~> ClassSource",
+				"Stage filter(isNull(DataFim)) ~> Ativos",
+				"Ativos sort(asc(BK, true)) ~> ClassStage",
+				"ClassStage select(mapColumn(",
+				"          Id_STG = Id,",
+				"          BK_STG = BK,",
+				"          CodProdOrigine_STG = CodProdOrigine,",
+				"          Nome_STG = Nome,",
+				"          DataInicio_STG = DataInicio,",
+				"          DataFim_STG = DataFim",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> NewStage",
+				"ClassSource select(mapColumn(",
+				"          Id_SRC = Id,",
+				"          CodProdOrigine_SRC = BK,",
+				"          Nome_SRC = Nome",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> NewSource",
+				"NewSource, NewStage join(Id_SRC == BK_STG,",
+				"     joinType:'left',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> LeftJoin",
+				"LeftJoin derive(DataStarEnd = toDate(currentTimestamp()) ) ~> DataIni"
 			]
 		}
 	}
